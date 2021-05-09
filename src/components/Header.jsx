@@ -238,14 +238,17 @@ const DropDown = styled.div`
   padding: 10px;
   font-size: 14px;
   letter-spacing: 3px;
-  width: 100px;
+  width: 130px;
+  text-align: center;
   opacity: 0;
+  text-transform: uppercase;
+  font-weight: bold;
 `;
 
 const SignOut = styled.div`
   position: relative;
   height: 48px;
-  width: 48px;
+  width: 130px;
   display: flex;
   cursor: pointer;
   align-items: center;

@@ -35,10 +35,10 @@ const Detail = () => {
       </ImageTitle>
       <ContentMeta>
         <Controls>
-          <Player>
+          <Play>
             <img src="/images/play-icon-black.png" alt="" />
             <span>Play</span>
-          </Player>
+          </Play>
           <Trailer>
             <img src="/images/play-icon-white.png" alt="" />
             <span>Trailer</span>
@@ -49,7 +49,7 @@ const Detail = () => {
           </AddList>
           <GroupWatch>
             <div>
-              <img src="/images/group-icon.png" alt="" />
+              <img src="/images/group-icon.png" alt="Group Watch" />
             </div>
           </GroupWatch>
         </Controls>
@@ -116,7 +116,7 @@ const Controls = styled.div`
   min-height: 56px;
 `;
 
-const Player = styled.button`
+const Play = styled.button`
   font-size: 15px;
   margin: 0px 22px 0px 0px;
   padding: 0px 24px;
@@ -132,6 +132,7 @@ const Player = styled.button`
   background: rgb (249, 249, 249);
   border: none;
   color: rgb(0, 0, 0);
+  transition: all 0.2s ease-out;
 
   img {
     width: 32px;
@@ -155,10 +156,14 @@ const Player = styled.button`
   }
 `;
 
-const Trailer = styled(Player)`
+const Trailer = styled(Play)`
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249, 249);
+
+  &:hover {
+    background: rgb(118, 118, 118);
+  }
 `;
 
 const AddList = styled.div`
@@ -172,6 +177,7 @@ const AddList = styled.div`
   border-radius: 50%;
   border: 2px solid white;
   cursor: pointer;
+  transition: all 0.2s ease-out;
 
   span {
     background-color: rgb(249, 249, 249);
@@ -189,6 +195,10 @@ const AddList = styled.div`
       width: 2px;
     }
   }
+
+  &:hover {
+    border: 2px solid rgb(118, 118, 118);
+  }
 `;
 
 const GroupWatch = styled.div`
@@ -200,6 +210,7 @@ const GroupWatch = styled.div`
   align-items: center;
   cursor: pointer;
   background: white;
+  transition: all 0.2s ease-out;
 
   div {
     height: 40px;
@@ -211,6 +222,10 @@ const GroupWatch = styled.div`
       width: 100%;
       object-fit: cover;
     }
+  }
+
+  &:hover {
+    background: rgb(118, 118, 118);
   }
 `;
 
