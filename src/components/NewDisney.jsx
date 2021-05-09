@@ -51,7 +51,7 @@ const Wrap = styled.div`
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  transition: all 0.25s ease-out;
+  transition: all 0.2s ease-out;
   border: 3px solid rgba(249, 249, 249, 0.1);
 
   img {
@@ -61,7 +61,7 @@ const Wrap = styled.div`
     object-fit: cover;
     opacity: 1;
     position: absolute;
-    transition: opacity 0.25s ease-out;
+    transition: opacity 0.2s ease-out;
     width: 100%;
     z-index: 1;
     top: 0;

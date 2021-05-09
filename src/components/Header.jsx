@@ -47,7 +47,7 @@ const Header = () => {
           setUser(result.user);
         })
         .catch(error => {
-          alert(error.message);
+          console.error(error.message);
         });
     } else if (userName) {
       auth
@@ -56,7 +56,7 @@ const Header = () => {
           dispatch(setSignOutState());
           history.push("/");
         })
-        .catch(err => alert(err.message));
+        .catch(err => console.error(err.message));
     }
   };
 
@@ -72,28 +72,28 @@ const Header = () => {
         <>
           <NavMenu>
             <Wrap href="/home">
-              <img src="/images/home-icon.svg" alt="HOME" />
-              <span>HOME</span>
+              <img src="/images/home-icon.svg" alt="Home" />
+              <span>Home</span>
             </Wrap>
             <Wrap href="/search">
-              <img src="/images/search-icon.svg" alt="SEARCH" />
-              <span>SEARCH</span>
+              <img src="/images/search-icon.svg" alt="Search" />
+              <span>Search</span>
             </Wrap>
             <Wrap href="/watchlist">
-              <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
-              <span>WATCHLIST</span>
+              <img src="/images/watchlist-icon.svg" alt="Watchlist" />
+              <span>Watchlist</span>
             </Wrap>
             <Wrap href="/originals">
-              <img src="/images/original-icon.svg" alt="ORIGINALS" />
-              <span>ORIGINALS</span>
+              <img src="/images/original-icon.svg" alt="Originals" />
+              <span>Originals</span>
             </Wrap>
             <Wrap href="/movies">
-              <img src="/images/movie-icon.svg" alt="MOVIES" />
-              <span>MOVIES</span>
+              <img src="/images/movie-icon.svg" alt="Movies" />
+              <span>Movies</span>
             </Wrap>
             <Wrap href="/series">
-              <img src="/images/series-icon.svg" alt="SERIES" />
-              <span>SERIES</span>
+              <img src="/images/series-icon.svg" alt="Series" />
+              <span>Series</span>
             </Wrap>
           </NavMenu>
           <SignOut>
@@ -124,6 +124,7 @@ const Nav = styled.nav`
 `;
 
 const Wrap = styled.a`
+  text-transform: uppercase;
   gap: 4px;
 `;
 
@@ -188,7 +189,7 @@ const NavMenu = styled.div`
         right: 0px;
         transform-origin: left center;
         transform: scaleX(0);
-        transition: all 0.25s ease-out;
+        transition: all 0.2s ease-out;
         visibility: hidden;
         width: auto;
       }
@@ -215,7 +216,7 @@ const Login = styled.a`
   letter-spacing: 1.5px;
   border: 1px solid #f9f9f9;
   border-radius: 4px;
-  transition: all 0.25s ease-out;
+  transition: all 0.2s ease-out;
 
   &:hover {
     background-color: #f9f9f9;
@@ -269,7 +270,7 @@ const SignOut = styled.div`
   &:hover {
     ${DropDown} {
       opacity: 1;
-      transition: opacity 0.25s ease-out;
+      transition: opacity 0.2s ease-out;
     }
   }
 `;

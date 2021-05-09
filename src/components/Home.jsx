@@ -10,6 +10,7 @@ import Originals from "./Originals.jsx";
 import Recommends from "./Recommends.jsx";
 import Trending from "./Trending.jsx";
 import Viewers from "./Viewers.jsx";
+import Footer from "./Footer";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ const Home = () => {
       <NewDisney />
       <Originals />
       <Trending />
+      <Footer />
     </Container>
   );
 };

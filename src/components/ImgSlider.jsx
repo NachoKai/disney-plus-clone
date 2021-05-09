@@ -53,7 +53,7 @@ const Carousel = styled(Slider)`
 
     &:hover {
       opacity: 1;
-      transition: opacity 0.25s ease-out;
+      transition: opacity 0.2s ease-out;
     }
   }
 
