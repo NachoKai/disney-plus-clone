@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import db from "../firebase";
+import Loading from "./Loading";
 
 const Detail = () => {
   const { id } = useParams();
@@ -26,36 +27,41 @@ const Detail = () => {
 
   return (
     <Container>
-      <Background>
-        <img alt={detailData.title} src={detailData.backgroundImg} />
-      </Background>
-
-      <ImageTitle>
-        <img alt={detailData.title} src={detailData.titleImg} />
-      </ImageTitle>
-      <ContentMeta>
-        <Controls>
-          <Play>
-            <img src="/images/play-icon-black.png" alt="" />
-            <span>Play</span>
-          </Play>
-          <Trailer>
-            <img src="/images/play-icon-white.png" alt="" />
-            <span>Trailer</span>
-          </Trailer>
-          <AddList>
-            <span />
-            <span />
-          </AddList>
-          <GroupWatch>
-            <div>
-              <img src="/images/group-icon.png" alt="Group Watch" />
-            </div>
-          </GroupWatch>
-        </Controls>
-        <SubTitle>{detailData.subTitle}</SubTitle>
-        <Description>{detailData.description}</Description>
-      </ContentMeta>
+      {detailData ? (
+        <>
+          <Background>
+            <img alt={detailData.title} src={detailData.backgroundImg} />
+          </Background>
+          <ImageTitle>
+            <img alt={detailData.title} src={detailData.titleImg} />
+          </ImageTitle>
+          <ContentMeta>
+            <Controls>
+              <Play>
+                <img src="/images/play-icon-black.png" alt="" />
+                <span>Play</span>
+              </Play>
+              <Trailer>
+                <img src="/images/play-icon-white.png" alt="" />
+                <span>Trailer</span>
+              </Trailer>
+              <AddList>
+                <span />
+                <span />
+              </AddList>
+              <GroupWatch>
+                <div>
+                  <img src="/images/group-icon.png" alt="Group Watch" />
+                </div>
+              </GroupWatch>
+            </Controls>
+            <SubTitle>{detailData.subTitle}</SubTitle>
+            <Description>{detailData.description}</Description>
+          </ContentMeta>{" "}
+        </>
+      ) : (
+        <Loading />
+      )}
     </Container>
   );
 };
@@ -92,6 +98,7 @@ const ImageTitle = styled.div`
   display: flex;
   justify-content: flex-start;
   margin: 0px auto;
+  margin-top: 64px;
   min-height: 170px;
   padding-bottom: 24px;
   width: 100%;

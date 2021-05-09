@@ -8,7 +8,7 @@ import {
   selectUserPhoto,
   setSignOutState,
   setUserLoginDetails,
-} from "../features/user/userSlice";
+} from "../redux/user/userSlice";
 import { auth, provider } from "../firebase";
 
 const Header = () => {
@@ -71,30 +71,30 @@ const Header = () => {
       ) : (
         <>
           <NavMenu>
-            <a href="/home">
+            <Wrap href="/home">
               <img src="/images/home-icon.svg" alt="HOME" />
               <span>HOME</span>
-            </a>
-            <a href="/search">
+            </Wrap>
+            <Wrap href="/search">
               <img src="/images/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
-            </a>
-            <a href="/watchlist">
+            </Wrap>
+            <Wrap href="/watchlist">
               <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
               <span>WATCHLIST</span>
-            </a>
-            <a href="/originals">
+            </Wrap>
+            <Wrap href="/originals">
               <img src="/images/original-icon.svg" alt="ORIGINALS" />
               <span>ORIGINALS</span>
-            </a>
-            <a href="/movies">
+            </Wrap>
+            <Wrap href="/movies">
               <img src="/images/movie-icon.svg" alt="MOVIES" />
               <span>MOVIES</span>
-            </a>
-            <a href="/series">
+            </Wrap>
+            <Wrap href="/series">
               <img src="/images/series-icon.svg" alt="SERIES" />
               <span>SERIES</span>
-            </a>
+            </Wrap>
           </NavMenu>
           <SignOut>
             <UserImg src={userPhoto} alt={userName} />
@@ -121,6 +121,10 @@ const Nav = styled.nav`
   padding: 0 36px;
   letter-spacing: 16px;
   z-index: 3;
+`;
+
+const Wrap = styled.a`
+  gap: 4px;
 `;
 
 const Logo = styled.a`

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import { setMovies } from "../features/movie/movieSlice";
+import { setMovies } from "../redux/movie/movieSlice";
 import db from "../firebase";
 import ImgSlider from "./ImgSlider.jsx";
 import NewDisney from "./NewDisney.jsx";
