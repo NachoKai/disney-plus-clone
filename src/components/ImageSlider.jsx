@@ -17,10 +17,10 @@ const ImageSlider = () => {
   return (
     <Carousel {...sliderSettings}>
       <Wrap>
-        <Img src="./assets/images/slider-badging.jpg" alt="" />
+        <Img src="../assets/images/slider-badging.jpg" alt="" />
       </Wrap>
       <Wrap>
-        <Img src="./assets/images/slider-badag.jpg" alt="" />
+        <Img src="../assets/images/slider-badag.jpg" alt="" />
       </Wrap>
     </Carousel>
   );

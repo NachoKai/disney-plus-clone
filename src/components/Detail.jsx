@@ -1,37 +1,52 @@
-import React from "react";
+import db from "../firebase";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const Detail = () => {
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+
+  useEffect(() => {
+    db.collection("movies")
+      .doc(id)
+      .get()
+      .then(doc => {
+        if (doc.exists) setMovie(doc.data());
+        else return;
+      });
+  }, [id]);
+
   return (
     <Container>
-      <Background>
-        <ImgBackground src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4F39B7E16726ECF419DD7C49E011DD95099AA20A962B0B10AA1881A70661CE45/scale?width=1440&aspectRatio=1.78&format=jpeg" />
-      </Background>
-      <Title>
-        <ImgTitle src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/D7AEE1F05D10FC37C873176AAA26F777FC1B71E7A6563F36C6B1B497CAB1CEC2/scale?width=1440&aspectRatio=1.78" />
-      </Title>
-      <Controls>
-        <Play>
-          <img src="./assets/images/play-icon-black.png" alt="Play" />
-          <span>Play</span>
-        </Play>
-        <Trailer>
-          <img src="./assets/images/play-icon-white.png" alt="Trailer" />
-          <span>Trailer</span>
-        </Trailer>
-        <Add>
-          <span>+</span>
-        </Add>
-        <GroupWatch>
-          <img src="./assets/images/group-icon.png" alt="Group Watch" />
-        </GroupWatch>
-      </Controls>
-      <SubTitle>2018 • 7m • Family, Fantasy, Kids, Animation</SubTitle>
-      <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quasi enim quia amet,
-        corrupti commodi cum in dolorem cupiditate eveniet tenetur? Accusantium vel quod hic fugiat
-        ipsum perferendis, vero ullam!{" "}
-      </Description>
+      {movie && (
+        <>
+          <Background>
+            <ImgBackground src={movie.backgroundImg} />
+          </Background>
+          <Title>
+            <ImgTitle src={movie.titleImg} />
+          </Title>
+          <Controls>
+            <Play>
+              <img src="../assets/images/play-icon-black.png" alt="" />
+              <span>Play</span>
+            </Play>
+            <Trailer>
+              <img src="../assets/images/play-icon-white.png" alt="" />
+              <span>Trailer</span>
+            </Trailer>
+            <Add>
+              <span>+</span>
+            </Add>
+            <GroupWatch>
+              <img src="../assets/images/group-icon.png" alt="Group Watch" />
+            </GroupWatch>
+          </Controls>
+          <SubTitle>{movie.subTitle}</SubTitle>
+          <Description>{movie.description}</Description>
+        </>
+      )}
     </Container>
   );
 };

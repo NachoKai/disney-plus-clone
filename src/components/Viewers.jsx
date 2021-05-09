@@ -5,19 +5,19 @@ const Viewers = () => {
   return (
     <Container>
       <Wrap>
-        <Img src="./assets/images/viewers-disney.png" alt="Disney" />
+        <Img src="../assets/images/viewers-disney.png" alt="Disney" />
       </Wrap>
       <Wrap>
-        <Img src="./assets/images/viewers-marvel.png" alt="Marvel" />
+        <Img src="../assets/images/viewers-marvel.png" alt="Marvel" />
       </Wrap>
       <Wrap>
-        <Img src="./assets/images/viewers-national.png" alt="National" />
+        <Img src="../assets/images/viewers-national.png" alt="National" />
       </Wrap>
       <Wrap>
-        <Img src="./assets/images/viewers-pixar.png" alt="Pixar" />
+        <Img src="../assets/images/viewers-pixar.png" alt="Pixar" />
       </Wrap>
       <Wrap>
-        <Img src="./assets/images/viewers-starwars.png" alt="Star Wars" />
+        <Img src="../assets/images/viewers-starwars.png" alt="Star Wars" />
       </Wrap>
     </Container>
   );
