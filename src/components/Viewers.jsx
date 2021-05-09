@@ -1,85 +1,98 @@
-import React from "react";
 import styled from "styled-components";
 
 const Viewers = () => {
   return (
     <Container>
       <Wrap>
-        <Img src="../assets/images/viewers-disney.png" alt="Disney" />
-        <Video autoPlay muted loop playsInline>
-          <source src="../assets/videos/1564674844-disney.mp4" type="video/mp4" />
-        </Video>
+        <img src="/images/viewers-disney.png" alt="" />
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/1564674844-disney.mp4" type="video/mp4" />
+        </video>
       </Wrap>
       <Wrap>
-        <Img src="../assets/images/viewers-marvel.png" alt="Marvel" />
-        <Video autoPlay muted loop playsInline>
-          <source src="../assets/videos/1564676115-marvel.mp4" type="video/mp4" />
-        </Video>
+        <img src="/images/viewers-pixar.png" alt="" />
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/1564676714-pixar.mp4" type="video/mp4" />
+        </video>
       </Wrap>
       <Wrap>
-        <Img src="../assets/images/viewers-national.png" alt="National" />
-        <Video autoPlay muted loop playsInline>
-          <source src="../assets/videos/1564676296-national-geographic.mp4" type="video/mp4" />
-        </Video>
+        <img src="/images/viewers-marvel.png" alt="" />
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/1564676115-marvel.mp4" type="video/mp4" />
+        </video>
       </Wrap>
       <Wrap>
-        <Img src="../assets/images/viewers-pixar.png" alt="Pixar" />
-        <Video autoPlay muted loop playsInline>
-          <source src="../assets/videos/1564676714-pixar.mp4" type="video/mp4" />
-        </Video>
+        <img src="/images/viewers-starwars.png" alt="" />
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/1608229455-star-wars.mp4" type="video/mp4" />
+        </video>
       </Wrap>
       <Wrap>
-        <Img src="../assets/images/viewers-starwars.png" alt="Star Wars" />
-        <Video autoPlay muted loop playsInline>
-          <source src="../assets/videos/1608229455-star-wars.mp4" type="video/mp4" />
-        </Video>
+        <img src="/images/viewers-national.png" alt="" />
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/1564676296-national-geographic.mp4" type="video/mp4" />
+        </video>
       </Wrap>
     </Container>
   );
 };
 
-export default Viewers;
-
 const Container = styled.div`
-  margin-top: 32px;
+  margin-top: 30px;
+  padding: 30px 0px 26px;
   display: grid;
+  grid-gap: 25px;
+  gap: 25px;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  grid-gap: 32px;
-  padding: 32px 0;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 `;
 
 const Wrap = styled.div`
-  border: 3px solid rgba(249, 249, 249, 0.1);
-  border-radius: 8px;
-  box-shadow: rgb(0 0 0 / 69%) 0 26px 30px -10px, rgb(0 0 0 / 73%) 0 16px 10px -10px;
+  padding-top: 56.25%;
+  border-radius: 10px;
+  box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  overflow: hidden;
   position: relative;
+  transition: all 0.25s ease-out;
+  border: 3px solid rgba(249, 249, 249, 0.1);
+
+  img {
+    inset: 0px;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    position: absolute;
+    transition: opacity 0.25s ease-out;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    object-fit: cover;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    z-index: 0;
+  }
 
   &:hover {
+    box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px, rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+
     transform: scale(1.05);
-    border-color: rgba(249, 249, 249, 0.3);
-    box-shadow: rgb(0 0 0 / 80%) 0 40px 58px -16px, rgb(0 0 0 / 72%) 0 30px 22px -18px;
+    border-color: rgba(249, 249, 249, 0.8);
 
     video {
-      z-index: -1;
       opacity: 1;
     }
   }
 `;
 
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const Video = styled.video`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  opacity: 0;
-`;
+export default Viewers;
